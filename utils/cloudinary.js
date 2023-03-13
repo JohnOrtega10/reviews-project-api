@@ -1,7 +1,7 @@
 const cloudinary = require('cloudinary').v2;
 const dotenv = require('dotenv');
 
-const { bufferToDataURI } = require('./dataURI');
+const { bufferToDataURI } = require('./dataUri');
 
 dotenv.config({ path: './.env' });
 
