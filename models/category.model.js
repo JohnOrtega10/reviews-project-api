@@ -1,0 +1,21 @@
+const { sequelize, DataTypes } = require('../utils/database');
+
+const Category = sequelize.define('category', {
+  id: {
+    primaryKey: true,
+    autoIncrement: true,
+    type: DataTypes.INTEGER
+  },
+  name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    unique: true
+  },
+  status: {
+    type: DataTypes.ENUM('active', 'deleted'),
+    allowNull: false,
+    defaultValue: 'active'
+  }
+});
+
+module.exports = { Category };

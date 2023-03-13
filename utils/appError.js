@@ -1,0 +1,15 @@
+// 4** -> Client error -> 'error'
+// 5** -> Server error -> 'fail'
+
+class AppError extends Error {
+  constructor(statusCode, message) {
+    super();
+    this.statusCode = statusCode;
+    this.message = message;
+    this.status = `${statusCode}`.startsWith('4') ? 'error' : 'fail';
+
+    Error.captureStackTrace(this, this.constructor);
+  }
+}
+
+module.exports = { AppError };
